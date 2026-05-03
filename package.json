@@ -16,7 +16,6 @@
     "astro": "^6.2.1"
   },
   "devDependencies": {
-    "@fontsource-variable/google-sans-flex": "^5.2.3",
     "@unocss/reset": "^66.6.8",
     "prettier": "^3.8.3",
     "prettier-plugin-astro": "^0.14.1"

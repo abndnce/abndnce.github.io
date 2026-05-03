@@ -12,9 +12,6 @@ importers:
         specifier: ^6.2.1
         version: 6.2.1(rollup@4.60.2)
     devDependencies:
-      '@fontsource-variable/google-sans-flex':
-        specifier: ^5.2.3
-        version: 5.2.3
       '@unocss/reset':
         specifier: ^66.6.8
         version: 66.6.8
@@ -234,9 +231,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@fontsource-variable/google-sans-flex@5.2.3':
-    resolution: {integrity: sha512-g5z9WANJW56gZTWJvu7mIHOiHJaffkk/dhOKqEiK4Nxnsk8lnGnijvGt4vF4KD2KWzscXBOB9XR2sfvTPSi5hA==}
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -1595,8 +1589,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.27.7':
     optional: true
-
-  '@fontsource-variable/google-sans-flex@5.2.3': {}
 
   '@img/colour@1.1.0':
     optional: true
