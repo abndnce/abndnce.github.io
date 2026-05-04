@@ -1,15 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-
-const randomTextOptions = [
-  'Powered by, and sharing, Mullvad',
-  'Powered by swiping with 3 fingers',
-  'Powered by Colemak',
-  'Powered by Astro',
-  'Powered by bigrat.monster',
-  'Powered by deconstruction',
-];
-const randomText = randomTextOptions[Math.floor(Math.random() * randomTextOptions.length)];
+import Build from './_Build.astro';
 ---
 
 <Base title="Abundance">
@@ -32,19 +23,9 @@ const randomText = randomTextOptions[Math.floor(Math.random() * randomTextOption
       >Abundance</strong
     > is working to eliminate website scarcity
   </h1>
-  <h2>
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
-      ><path
-        fill="currentColor"
-        d="M2 21q-.425 0-.712-.288T1 20t.288-.712T2 19h20q.425 0 .713.288T23 20t-.288.713T22 21zm2-3q-.825 0-1.412-.587T2 16V5q0-.825.588-1.412T4 3h16q.825 0 1.413.588T22 5v11q0 .825-.587 1.413T20 18zm0-2h16V5H4zm0 0V5z"
-      ></path></svg
-    > Connect tabs to tunnels
-  </h2>
-  <div class="bentos">
-    <a href="https://github.com/0k-web/0k"
-      ><strong>0K</strong>Bring your own tunnel instead of relying on a server</a
-    >
-  </div>
+  <a class="zerok" href="https://github.com/0k-web/0k"
+    ><strong>0K</strong>Use the Internet with your own tunnel, even in the most adverse conditions</a
+  >
   <h2>
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
       ><path
@@ -53,46 +34,50 @@ const randomText = randomTextOptions[Math.floor(Math.random() * randomTextOption
       ></path></svg
     > Build like Abundance builds
   </h2>
-  <div class="bentos">
-    <a href="https://kendell.dev/blog/howtoipfs/"
-      ><strong>IPFS</strong>Access your site on any gateway in the world</a
-    >
-    <a><strong>Coming soon</strong>Talk to your servers no matter where your servers are</a>
-    <a href="https://pub-a50359bc057145a29fec81fc5062b2b4.r2.dev/index.html"
-      ><strong>Welcome to the Internet</strong>Research interesting domains</a
-    >
-  </div>
+  <Build />
   <h2>
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
       ><path
         fill="currentColor"
-        d="M1 16v-.575q0-1.475 1.425-1.95T5 13t2.575.475T9 15.425V16zm4-4q-.825 0-1.412-.587T3 10t.588-1.412T5 8t1.413.588T7 10t-.587 1.413T5 12m4.675 1.425q-.3 0-.525-.225t-.225-.525q0-.15.225-.525q.2-.25.275-.55T9.5 11t-.075-.587t-.275-.538q-.1-.125-.162-.262t-.063-.288q0-.325.213-.537t.537-.213q.2 0 .363.113t.287.262q.325.45.5.975T11 11t-.175 1.063t-.5.987q-.125.15-.287.263t-.363.112m2.125 2.15q-.325 0-.55-.212t-.225-.538q0-.15.063-.287t.162-.263q.625-.7.938-1.55T12.5 11t-.312-1.713t-.938-1.537q-.1-.125-.162-.25t-.063-.275q0-.325.213-.55t.537-.225q.175 0 .325.075t.275.2Q13.2 7.65 13.6 8.75T14 11t-.413 2.263t-1.212 2.037q-.125.125-.262.2t-.313.075M15 16v-.575q0-1.475 1.425-1.95T19 13t2.575.475T23 15.425V16zm4-4q-.825 0-1.412-.587T17 10t.588-1.412T19 8t1.413.588T21 10t-.587 1.413T19 12"
+        d="M4 21q-.825 0-1.412-.587T2 19V5q0-.825.588-1.412T4 3h14q.825 0 1.413.588T20 5v2h1q.425 0 .713.288T22 8t-.288.713T21 9h-1v2h1q.425 0 .713.288T22 12t-.288.713T21 13h-1v2h1q.425 0 .713.288T22 16t-.288.713T21 17h-1v2q0 .825-.587 1.413T18 21zm3-4h3q.425 0 .713-.288T11 16v-2q0-.425-.288-.712T10 13H7q-.425 0-.712.288T6 14v2q0 .425.288.713T7 17m6-7h2q.425 0 .713-.288T16 9V8q0-.425-.288-.712T15 7h-2q-.425 0-.712.288T12 8v1q0 .425.288.713T13 10m-6 2h3q.425 0 .713-.288T11 11V8q0-.425-.288-.712T10 7H7q-.425 0-.712.288T6 8v3q0 .425.288.713T7 12m6 5h2q.425 0 .713-.288T16 16v-4q0-.425-.288-.712T15 11h-2q-.425 0-.712.288T12 12v4q0 .425.288.713T13 17"
       ></path></svg
-    > Discord
+    > Powered by
   </h2>
-  <div class="bentos">
-    <a href="https://discord.gg/5j665Gq2uz"><strong>Discord</strong>Discord</a>
-  </div>
-  <p class="text"><em>{randomText}</em></p>
+  <p>
+    <a href="https://pub-a50359bc057145a29fec81fc5062b2b4.r2.dev/index.html"
+      >Welcome to the Internet</a
+    >, a domain name explorer
+  </p>
+  <p>
+    Our <a href="https://discord.gg/5j665Gq2uz">Discord</a> (we have some open Mullvad spots)
+  </p>
 </Base>
 <style>
   :global(body) {
-    width: min(calc(100% - 3rem), 60rem);
+    width: min(calc(100% - 3rem), 40rem);
     margin-inline: auto;
     padding-block: 0.5rem;
     justify-content: center;
   }
+  .spacer {
+    flex-grow: 1;
+  }
   h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
     font-size: 1.375rem;
     line-height: 1.273;
     font-weight: 400;
 
     margin-left: -1em;
+    margin-bottom: 0.25rem;
   }
   h1 > strong {
     font-stretch: 150%;
     letter-spacing: -0.05em;
-    color: light-dark(#006940, #b1ffcd);
+    color: var(--m3c-primary);
   }
   h2 {
     font-size: 1rem;
@@ -105,39 +90,31 @@ const randomText = randomTextOptions[Math.floor(Math.random() * randomTextOption
     margin-block: 1rem 0.25rem;
     color: var(--m3c-primary);
   }
-  .bentos {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    margin-left: -1rem;
-  }
-  .bentos > * {
+  .zerok {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     padding: 1rem;
+    margin-inline: -1rem;
     border-radius: 1rem;
-    background: var(--m3c-surface-container);
+    background-color: var(--m3c-surface-container-high);
     color: var(--m3c-on-surface);
-    transition: background 0.15s;
+    transition: 0.15s;
     font-stretch: 90%;
     &[href] {
       &:hover {
-        background: var(--m3c-surface-container-high);
+        background-color: var(--m3c-primary-container-subtle);
+        color: var(--m3c-on-primary-container-subtle);
       }
     }
-    &:not([href]) {
-      opacity: 0.6;
-      cursor: default;
+    strong {
+      display: block;
+      font-weight: 600;
+      font-stretch: 120%;
+      letter-spacing: -0.02em;
     }
   }
-  .bentos strong {
-    display: block;
-    font-weight: 600;
-    font-stretch: 120%;
-    letter-spacing: -0.02em;
-  }
-  .text {
-    margin-top: 1rem;
+  p > a {
+    color: var(--m3c-primary);
+    text-decoration: underline;
   }
 </style>
