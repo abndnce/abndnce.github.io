@@ -1,5 +1,5 @@
 {
   "printWidth": 100,
   "singleQuote": true,
-  "plugins": ["prettier-plugin-astro"]
+  "overrides": [{ "files": "*.svg", "options": { "parser": "html" } }]
 }

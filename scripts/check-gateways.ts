@@ -1,5 +1,4 @@
 import { writeFile } from 'node:fs/promises';
-
 const GATEWAYS_URL =
   'https://raw.githubusercontent.com/ipfs/public-gateway-checker/2d34e27d80c85b8ff6cf06693c0fab5cfd495080/gateways.json';
 const IPNS_PATH = '/ipns/k51qzi5uqu5dgn54ka0d91se4ytmy9uiend9pk4zfuwroenqhwllm05hzwuac6/';
@@ -7,24 +6,17 @@ const MIN_SIZE = 100 * 1024;
 const TIMEOUT = 15000;
 const CONCURRENCY = 10;
 const OUTPUT = 'data/ipfs.json';
-
 async function checkGateway(gateway: string) {
   const base = gateway.replace(/\/+$/, '');
   const url = base + IPNS_PATH;
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), TIMEOUT);
-
-    const response = await fetch(url, {
-      signal: controller.signal,
-      redirect: 'follow',
-    });
+    const response = await fetch(url, { signal: controller.signal, redirect: 'follow' });
     clearTimeout(timeout);
-
     if (!gateway.includes('dweb.link') && response.url.includes('dweb.link')) {
       return { gateway, working: false as const, reason: 'redirected to dweb.link' };
     }
-
     if (response.status !== 200) {
       const body = await response.text();
       const preview = body.slice(0, 40);
@@ -42,10 +34,8 @@ async function checkGateway(gateway: string) {
 
     const cl = response.headers.get('content-length');
     let sizeOk = cl ? parseInt(cl, 10) >= MIN_SIZE : false;
-
     let bodyStart = '';
     let actualSize = 0;
-
     if (!sizeOk) {
       const reader = response.body!.getReader();
       let total = 0;
@@ -63,7 +53,6 @@ async function checkGateway(gateway: string) {
       actualSize = total;
       sizeOk = total >= MIN_SIZE;
     }
-
     if (!sizeOk) {
       const isHtml =
         bodyStart.toLowerCase().startsWith('<!') || bodyStart.toLowerCase().startsWith('<ht');
@@ -109,13 +98,13 @@ for (let i = 0; i < gateways.length; i += CONCURRENCY) {
       const r = await checkGateway(gw);
       done++;
       const icon = r.working ? '✓' : '✗';
-      console.log(`${icon} [${done}/${gateways.length}] ${r.gateway} — ${r.reason}`);
+      console.log(`${icon}
+[${done}/${gateways.length}] ${r.gateway} — ${r.reason}`);
       results.push(r);
     }),
   );
 }
-
 const working = results.filter((r) => r.working).map((r) => r.gateway);
 await writeFile(OUTPUT, JSON.stringify(working, null, 2) + '\n');
-
-console.log(`\ndone — ${working.length}/${results.length} working, written to ${OUTPUT}`);
+console.log(`\ndone — ${working.length}/${results.length}
+working, written to ${OUTPUT}`);

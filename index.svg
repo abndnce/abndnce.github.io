@@ -1,0 +1,336 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Google Sans Flex';
+        font-style: normal;
+        font-weight: 1 1000;
+        font-stretch: 25% 151%;
+        font-display: swap;
+        src: url('GSANS_DATA_URI') format('woff2');
+      }
+      :root {
+        color-scheme: light dark;
+        background-color: var(--m3c-surface);
+        color: var(--m3c-on-surface);
+        accent-color: var(--m3c-primary);
+        font-family: 'Google Sans Flex', system-ui;
+        interpolate-size: allow-keywords;
+        --m3c-surface: light-dark(#daffec, #00120a);
+        --m3c-surface-container-lowest: light-dark(#fff, #000);
+        --m3c-surface-container-low: light-dark(#c1fee3, #00170f);
+        --m3c-surface-container: light-dark(#b4f6d9, #001e14);
+        --m3c-surface-container-high: light-dark(#aaf1d3, #00251a);
+        --m3c-surface-container-highest: light-dark(#a0eccc, #002c1f);
+        --m3c-on-surface: light-dark(#003627, #daffec);
+        --m3c-on-surface-variant: light-dark(#326552, #81b69f);
+        --m3c-outline: light-dark(#4e816c, #4c7f6b);
+        --m3c-outline-variant: light-dark(#83b8a1, #1c513f);
+        --m3c-inverse-surface: light-dark(#00120a, #e7fff2);
+        --m3c-inverse-on-surface: light-dark(#74a891, #2b5e4b);
+        --m3c-primary: light-dark(#006940, #b1ffcd);
+        --m3c-on-primary: light-dark(#caffdb, #00663e);
+        --m3c-primary-container: #07ffa2;
+        --m3c-on-primary-container: #005c37;
+        --m3c-inverse-primary: light-dark(#07ffa2, #006d42);
+        --m3c-secondary: light-dark(#00684e, #65fcc8);
+        --m3c-on-secondary: light-dark(#c6ffe5, #005e45);
+        --m3c-secondary-container: light-dark(#65fcc8, #006c50);
+        --m3c-on-secondary-container: light-dark(#005e45, #dfffef);
+        --m3c-tertiary: light-dark(#00647a, #70ddff);
+        --m3c-on-tertiary: light-dark(#e1f6ff, #004c5e);
+        --m3c-tertiary-container: #00d2fe;
+        --m3c-on-tertiary-container: #004352;
+        --m3c-error: light-dark(#b31b25, #ff716c);
+        --m3c-on-error: light-dark(#ffefee, #490006);
+        --m3c-error-container: light-dark(#fb5151, #9f0519);
+        --m3c-on-error-container: light-dark(#570008, #ffa8a3);
+        --m3c-shadow: #000;
+        --m3c-scrim: #000;
+        --m3c-on-on-primary: light-dark(#006940, #aeffcc);
+        --m3c-primary-container-subtle: light-dark(#00f299, #00341d);
+        --m3c-on-primary-container-subtle: light-dark(#005532, #00c37b);
+        --m3c-secondary-container-subtle: light-dark(#54edbb, #003324);
+        --m3c-on-secondary-container-subtle: light-dark(#00543e, #00c293);
+        --m3c-tertiary-container-subtle: light-dark(#87e1ff, #00313d);
+        --m3c-on-tertiary-container-subtle: light-dark(#005063, #00bae1);
+        --m3c-error-container-subtle: light-dark(#ffc7c3, #60000a);
+        --m3c-on-error-container-subtle: light-dark(#970016, #ff8983);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .container {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+      }
+      .container::-webkit-scrollbar {
+        display: none;
+      }
+      .container {
+        scrollbar-width: none;
+      }
+      .slide {
+        scroll-snap-align: start;
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 2rem;
+        text-align: center;
+      }
+      p {
+        margin-top: 0.5rem;
+      }
+      p > a {
+        color: var(--m3c-primary);
+        text-decoration: underline;
+      }
+      .sub {
+        color: var(--m3c-on-surface-variant);
+        margin-top: 0.25rem;
+      }
+    </style>
+  </defs>
+  <foreignObject x="0" y="0" width="100%" height="100%">
+    <body xmlns="http://www.w3.org/1999/xhtml">
+      <div class="container">
+        <style>
+          h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10dvw;
+            font-weight: bold;
+            color: var(--m3c-primary);
+            letter-spacing: -0.05em;
+            line-height: 1;
+          }
+          #s1 > p {
+            color: var(--m3c-on-surface-variant);
+            font-size: 2rem;
+          }
+        </style>
+        <div class="slide" id="s1">
+          <h1>
+            <svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+              ><path
+                stroke="currentColor"
+                fill="none"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 9 12 2 8.5 5.5M12 2l3.5 3.5M15 12 22 12 18.5 8.5M22 12l-3.5 3.5M9 12 2 12 5.5 8.5M2 12l3.5 3.5M12 15 12 22 15.5 18.5M12 22l-3.5-3.5"
+            /></svg>
+            Abundance
+          </h1>
+          <p>is working to eliminate website scarcity.</p>
+        </div>
+
+        <style>
+          #s2 {
+            flex-direction: row;
+            align-items: center;
+            justify-content: normal;
+            text-align: start;
+            background-color: var(--m3c-primary-container-subtle);
+            color: var(--m3c-on-primary-container-subtle);
+            text-decoration: none;
+            padding: 0;
+            border-radius: 2rem;
+            font-size: 2rem;
+          }
+          #s2 > h2 {
+            font-weight: 400;
+          }
+        </style>
+        <a href="https://github.com/0k-web/0k" class="slide" id="s2">
+          <h2>0K</h2>
+          <p>
+            is Abundance's main project, a way to use the internet with tunnels instead of central
+            servers
+          </p>
+        </a>
+
+        <style>
+          #s3 > a {
+            display: flex;
+            align-items: center;
+            height: 2rem;
+            padding-inline: 0.5rem;
+            border-radius: 2rem;
+            background-color: var(--m3c-primary-container-subtle);
+            color: var(--m3c-on-primary-container-subtle);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1em;
+          }
+          .domain-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          .domain {
+            display: flex;
+            align-items: center;
+            height: 2rem;
+            padding-inline: 0.5rem;
+            border-radius: 2rem;
+            background-color: var(--m3c-surface-container);
+            color: var(--m3c-on-surface);
+            text-decoration: none;
+            font-weight: 500;
+          }
+          a.domain {
+            background-color: var(--m3c-primary-container-subtle);
+            color: var(--m3c-on-primary-container-subtle);
+          }
+        </style>
+        <div class="slide" id="s3">
+          <h2>✓ 0K already uses these domains</h2>
+          <a href="https://kendell.dev/blog/howtoipfs/">Various CDNs (learn more)</a>
+          <div class="domain-wrap">
+            <span class="domain">cdn.jsdelivr.net</span>
+            <span class="domain">esm.sh</span>
+            <span class="domain">ipfs.io</span>
+            <span class="domain">dweb.link</span>
+          </div>
+          <a href="https://kendell.dev/milliblog/gamp/">Google AMP (learn more)</a>
+          <div class="domain-wrap"><span class="domain">cdn.ampproject.org</span></div>
+        </div>
+
+        <div class="slide" id="s4">
+          <h2>Other interesting hosts</h2>
+          <div class="domain-wrap">
+            <span class="domain">codehs.me</span>
+            <span class="domain">techsmart.cc</span>
+            <span class="domain">storage.googleapis.com</span>
+            <span class="domain">web.app</span>
+            <span class="domain">firebaseapp.com</span>
+            <span class="domain">pages.gay</span>
+            <a class="domain" href="https://pub-a50359bc057145a29fec81fc5062b2b4.r2.dev/index.html"
+              >find more on Welcome to the Internet...</a
+            >
+          </div>
+          <h2 style="margin-top: 1rem">You could host 0K on them. Editions:</h2>
+          <div class="domain-wrap">
+            <a
+              class="domain"
+              href="https://github.com/abndnce/0k/releases/download/latest/selfhost-0k.zip"
+              >jsDelivr</a
+            >
+            <a
+              class="domain"
+              href="https://github.com/abndnce/0k/releases/download/latest/selfhost-0k-assets-esmsh.zip"
+              >esm.sh</a
+            >
+            <a
+              class="domain"
+              href="https://github.com/abndnce/0k/releases/download/latest/selfhost-0k-assets-statically.zip"
+              >Statically</a
+            >
+            <a
+              class="domain"
+              href="https://github.com/abndnce/0k/releases/download/latest/selfhost-0k-assets-colocated.zip"
+              >Assets-included</a
+            >
+          </div>
+          <p style="color: var(--m3c-on-surface-variant)">
+            The edition powered by jsDelivr is recommended
+          </p>
+        </div>
+
+        <style>
+          #s5 {
+            background-color: var(--m3c-primary-container-subtle);
+            color: var(--m3c-on-primary-container-subtle);
+            text-decoration: none;
+            padding: 0;
+            border-radius: 2rem;
+            font-size: 2rem;
+          }
+          #s5 > h2 {
+            font-weight: 400;
+          }
+        </style>
+        <a href="https://discord.gg/5j665Gq2uz" class="slide" id="s5">
+          <h2>Discord</h2>
+          <p>Contains Mullvad.</p>
+        </a>
+      </div>
+      <script>
+        <![CDATA[
+                function fit() {
+                  var vw = window.innerWidth;
+                  var vh = window.innerHeight;
+                  function calibrate(el, opts) {
+                    if (!el) return;
+                    if (opts.fontSize != null) {
+                      el.style.fontSize = opts.fontSize;
+                    }
+                    if (opts.lineHeight) el.style.lineHeight = opts.lineHeight;
+                    if (opts.letterSpacing) el.style.letterSpacing = opts.letterSpacing;
+
+                    // measure at three stretch points: 25%, 100%, 151%
+                    el.style.fontStretch = '25%';
+                    var w25 = el.offsetWidth;
+                    el.style.fontStretch = '100%';
+                    var w100 = el.offsetWidth;
+                    el.style.fontStretch = '151%';
+                    var w151 = el.offsetWidth;
+
+                    // piecewise linear model
+                    var m1 = (w100 - w25) / 75;
+                    var c1 = w25 - m1 * 25;
+                    var m2 = (w151 - w100) / 51;
+                    var c2 = w100 - m2 * 100;
+
+                    var targetW = vw * opts.targetWidthVw / 100;
+                    var s;
+                    if (targetW <= w100) {
+                      s = Math.round((targetW - c1) / m1);
+                    } else {
+                      s = Math.round((targetW - c2) / m2);
+                    }
+                    s = Math.max(25, Math.min(151, s));
+                    el.style.fontStretch = s + '%';
+                  }
+
+                  calibrate(document.querySelector('#s2 > h2'), {
+                    fontSize: (100 / 0.8 / 100 * vh) + 'px',
+                    targetWidthVw: 50,
+                    lineHeight: 0.8,
+                    letterSpacing: '-0.02em'
+                  });
+                  calibrate(document.querySelector('#s5 > h2'), {
+                    fontSize: (75 / 0.8 / 100 * vh) + 'px',
+                    targetWidthVw: 100,
+                    lineHeight: 0.8,
+                    letterSpacing: '-0.02em'
+                  });
+                  calibrate(document.querySelector('#s1 > h1'), {
+                    targetWidthVw: 99,
+                    lineHeight: 1,
+                    letterSpacing: '-0.05em'
+                  });
+                }
+                window.addEventListener('resize', fit);
+                fit();
+              ]]>
+      </script>
+    </body>
+  </foreignObject>
+</svg>

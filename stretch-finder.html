@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>stretch finder</title>
+    <style>
+      @font-face {
+        font-family: 'Google Sans Flex';
+        font-style: normal;
+        font-weight: 1 1000;
+        font-stretch: 25% 151%;
+        font-display: block;
+        src: url('./gsans.woff2') format('woff2');
+      }
+      body {
+        font-family: 'Google Sans Flex', sans-serif;
+        margin: 1rem;
+      }
+      pre {
+        white-space: pre-wrap;
+        font-family: 'Google Sans Flex', monospace;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0.1rem 0;
+      }
+      .label {
+        min-width: 3rem;
+        text-align: right;
+        font-size: 0.8rem;
+        color: #888;
+      }
+      .sample {
+        white-space: nowrap;
+      }
+      .width {
+        font-size: 0.75rem;
+        color: #666;
+        min-width: 6rem;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="out"></pre>
+    <div id="viz"></div>
+    <script>
+      const out = document.getElementById('out');
+      const viz = document.getElementById('viz');
+      function log(...a) {
+        out.textContent += a.join(' ') + '\n';
+      }
+
+      function measure(text, fs, stretch) {
+        const el = document.createElement('span');
+        el.style.fontFamily = '"Google Sans Flex"';
+        el.style.fontSize = fs + 'px';
+        el.style.fontStretch = stretch + '%';
+        el.style.position = 'absolute';
+        el.style.visibility = 'hidden';
+        el.style.whiteSpace = 'nowrap';
+        el.textContent = text;
+        document.body.appendChild(el);
+        const w = el.offsetWidth;
+        el.remove();
+        return w;
+      }
+
+      document.fonts.ready.then(() => {
+        const cases = [
+          { text: '0K', label: 's2 "0K"' },
+          { text: 'Discord', label: 's5 "Discord"' },
+        ];
+
+        for (const { text, label } of cases) {
+          log('=== ' + label + ' at 100px font-size ===\n');
+
+          const header = document.createElement('div');
+          header.style.fontWeight = 'bold';
+          header.style.marginTop = '1rem';
+          header.textContent = label + ' at 100px:';
+          viz.appendChild(header);
+
+          let prev = null;
+          for (let s = 25; s <= 151; s += 2) {
+            const w = measure(text, 100, s);
+            const ratio = w / 100;
+            let slope = '';
+            if (prev !== null) {
+              const ds = s - prev.s;
+              const dw = w - prev.w;
+              slope = '  slope=' + (dw / ds).toFixed(4) + 'px/%';
+            }
+            log(
+              '  ' +
+                s +
+                '%  → ' +
+                w.toFixed(2) +
+                'px' +
+                slope +
+                '  (W₀/em=' +
+                ratio.toFixed(4) +
+                ')',
+            );
+            prev = { w, s };
+
+            const row = document.createElement('div');
+            row.className = 'row';
+
+            const lbl = document.createElement('span');
+            lbl.className = 'label';
+            lbl.textContent = s + '%';
+            row.appendChild(lbl);
+
+            const span = document.createElement('span');
+            span.className = 'sample';
+            span.style.fontFamily = '"Google Sans Flex"';
+            span.style.fontSize = '100px';
+            span.style.fontStretch = s + '%';
+            span.textContent = text;
+            row.appendChild(span);
+
+            const wdth = document.createElement('span');
+            wdth.className = 'width';
+            wdth.textContent = w.toFixed(1) + 'px  (W₀/em=' + ratio.toFixed(4) + ')';
+            row.appendChild(wdth);
+
+            viz.appendChild(row);
+          }
+
+          log('');
+
+          // Piecewise linear model
+          const w25 = measure(text, 100, 25);
+          const w100 = measure(text, 100, 100);
+          const w151 = measure(text, 100, 151);
+
+          const b_below = (w100 - w25) / 75;
+          const a_below = w25 - b_below * 25;
+
+          const b_above = (w151 - w100) / 51;
+          const a_above = w100 - b_above * 100;
+
+          log(
+            '  model below 100%: W₀/em = ' +
+              (a_below / 100).toFixed(4) +
+              ' + ' +
+              (b_below / 100).toFixed(4) +
+              ' * s',
+          );
+          log(
+            '  model above 100%: W₀/em = ' +
+              (a_above / 100).toFixed(4) +
+              ' + ' +
+              (b_above / 100).toFixed(4) +
+              ' * s',
+          );
+          log('  (width = W₀/em * font-size, s = stretch %)');
+          log('');
+        }
+
+        log('done');
+      });
+    </script>
+  </body>
+</html>
