@@ -113,15 +113,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10dvw;
+            font-size: min(9vw, 22vh);
             font-weight: bold;
+            font-stretch: 151%;
             color: var(--m3c-primary);
-            letter-spacing: -0.05em;
+            letter-spacing: -0.02em;
             line-height: 1;
           }
           #s1 > p {
             color: var(--m3c-on-surface-variant);
-            font-size: 2rem;
+            font-size: clamp(1.35rem, 2.8vw, 2rem);
           }
         </style>
         <div class="slide" id="s1">
@@ -143,18 +144,32 @@
         <style>
           #s2 {
             flex-direction: row;
+            gap: clamp(1rem, 3vw, 3rem);
             align-items: center;
-            justify-content: normal;
+            justify-content: start;
             text-align: start;
             background-color: var(--m3c-primary-container-subtle);
             color: var(--m3c-on-primary-container-subtle);
             text-decoration: none;
-            padding: 0;
-            border-radius: 2rem;
-            font-size: 2rem;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            border-radius: clamp(1.5rem, 4vw, 2.5rem);
           }
           #s2 > h2 {
             font-weight: 400;
+            font-size: 125vh;
+            font-optical-sizing: none;
+            font-variation-settings: 'opsz' 144;
+            font-stretch: 25%;
+            line-height: 0.8;
+            letter-spacing: -0.02em;
+            margin: 0;
+          }
+          #s2 > p {
+            flex: 0 1 16ch;
+            max-width: 16ch;
+            margin-top: 0;
+            font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+            line-height: 1.05;
           }
         </style>
         <a href="https://github.com/0k-web/0k" class="slide" id="s2">
@@ -258,12 +273,632 @@
             background-color: var(--m3c-primary-container-subtle);
             color: var(--m3c-on-primary-container-subtle);
             text-decoration: none;
-            padding: 0;
-            border-radius: 2rem;
-            font-size: 2rem;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            border-radius: clamp(1.5rem, 4vw, 2.5rem);
           }
           #s5 > h2 {
             font-weight: 400;
+            font-size: 93.75vh;
+            font-optical-sizing: none;
+            font-variation-settings: 'opsz' 144;
+            font-stretch: 25%;
+            line-height: 0.8;
+            letter-spacing: -0.02em;
+            margin: 0;
+          }
+          #s5 > p {
+            margin-top: 0;
+            font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+            line-height: 1.05;
+          }
+          @media (max-width: 720px), (max-aspect-ratio: 4/5) {
+            h1 {
+              font-size: min(24vh, 24vw);
+              font-stretch: 25%;
+            }
+            #s2 {
+              flex-direction: column;
+              text-align: center;
+            }
+            #s2 > h2 {
+              font-size: min(125vh, 122vw);
+            }
+            #s2 > p {
+              max-width: 11ch;
+              font-size: clamp(1.75rem, 8vw, 2.75rem);
+            }
+            #s5 > h2 {
+              font-size: min(93.75vh, 57vw);
+            }
+            #s5 > p {
+              font-size: clamp(1.6rem, 7vw, 2.5rem);
+            }
+          }
+                    @media (min-aspect-ratio: 104/100) {
+            #s2 > h2 {
+              font-stretch: 26%;
+            }
+          }
+          @media (min-aspect-ratio: 107/100) {
+            #s2 > h2 {
+              font-stretch: 27%;
+            }
+          }
+          @media (min-aspect-ratio: 109/100) {
+            #s2 > h2 {
+              font-stretch: 28%;
+            }
+          }
+          @media (min-aspect-ratio: 111/100) {
+            #s2 > h2 {
+              font-stretch: 29%;
+            }
+          }
+          @media (min-aspect-ratio: 113/100) {
+            #s5 > h2 {
+              font-stretch: 26%;
+            }
+          }
+          @media (min-aspect-ratio: 114/100) {
+            #s2 > h2 {
+              font-stretch: 30%;
+            }
+          }
+          @media (min-aspect-ratio: 115/100) {
+            #s5 > h2 {
+              font-stretch: 27%;
+            }
+          }
+          @media (min-aspect-ratio: 116/100) {
+            #s2 > h2 {
+              font-stretch: 31%;
+            }
+          }
+          @media (min-aspect-ratio: 118/100) {
+            #s2 > h2 {
+              font-stretch: 32%;
+            }
+            #s5 > h2 {
+              font-stretch: 28%;
+            }
+          }
+          @media (min-aspect-ratio: 120/100) {
+            #s5 > h2 {
+              font-stretch: 29%;
+            }
+          }
+          @media (min-aspect-ratio: 121/100) {
+            #s2 > h2 {
+              font-stretch: 33%;
+            }
+          }
+          @media (min-aspect-ratio: 122/100) {
+            #s5 > h2 {
+              font-stretch: 30%;
+            }
+          }
+          @media (min-aspect-ratio: 123/100) {
+            #s2 > h2 {
+              font-stretch: 34%;
+            }
+          }
+          @media (min-aspect-ratio: 125/100) {
+            #s2 > h2 {
+              font-stretch: 35%;
+            }
+            #s5 > h2 {
+              font-stretch: 31%;
+            }
+          }
+          @media (min-aspect-ratio: 127/100) {
+            #s5 > h2 {
+              font-stretch: 32%;
+            }
+          }
+          @media (min-aspect-ratio: 128/100) {
+            #s2 > h2 {
+              font-stretch: 36%;
+            }
+          }
+          @media (min-aspect-ratio: 130/100) {
+            #s2 > h2 {
+              font-stretch: 37%;
+            }
+            #s5 > h2 {
+              font-stretch: 33%;
+            }
+          }
+          @media (min-aspect-ratio: 132/100) {
+            #s5 > h2 {
+              font-stretch: 34%;
+            }
+          }
+          @media (min-aspect-ratio: 133/100) {
+            #s2 > h2 {
+              font-stretch: 38%;
+            }
+          }
+          @media (min-aspect-ratio: 134/100) {
+            #s5 > h2 {
+              font-stretch: 35%;
+            }
+          }
+          @media (min-aspect-ratio: 135/100) {
+            #s2 > h2 {
+              font-stretch: 39%;
+            }
+          }
+          @media (min-aspect-ratio: 137/100) {
+            #s2 > h2 {
+              font-stretch: 40%;
+            }
+            #s5 > h2 {
+              font-stretch: 36%;
+            }
+          }
+          @media (min-aspect-ratio: 139/100) {
+            #s5 > h2 {
+              font-stretch: 37%;
+            }
+          }
+          @media (min-aspect-ratio: 140/100) {
+            #s2 > h2 {
+              font-stretch: 41%;
+            }
+          }
+          @media (min-aspect-ratio: 142/100) {
+            #s2 > h2 {
+              font-stretch: 42%;
+            }
+            #s5 > h2 {
+              font-stretch: 38%;
+            }
+          }
+          @media (min-aspect-ratio: 144/100) {
+            #s2 > h2 {
+              font-stretch: 43%;
+            }
+            #s5 > h2 {
+              font-stretch: 39%;
+            }
+          }
+          @media (min-aspect-ratio: 147/100) {
+            #s2 > h2 {
+              font-stretch: 44%;
+            }
+            #s5 > h2 {
+              font-stretch: 40%;
+            }
+          }
+          @media (min-aspect-ratio: 149/100) {
+            #s2 > h2 {
+              font-stretch: 45%;
+            }
+            #s5 > h2 {
+              font-stretch: 41%;
+            }
+          }
+          @media (min-aspect-ratio: 151/100) {
+            #s5 > h2 {
+              font-stretch: 42%;
+            }
+          }
+          @media (min-aspect-ratio: 152/100) {
+            #s2 > h2 {
+              font-stretch: 46%;
+            }
+          }
+          @media (min-aspect-ratio: 154/100) {
+            #s2 > h2 {
+              font-stretch: 47%;
+            }
+            #s5 > h2 {
+              font-stretch: 43%;
+            }
+          }
+          @media (min-aspect-ratio: 156/100) {
+            #s2 > h2 {
+              font-stretch: 48%;
+            }
+            #s5 > h2 {
+              font-stretch: 44%;
+            }
+          }
+          @media (min-aspect-ratio: 159/100) {
+            #s2 > h2 {
+              font-stretch: 49%;
+            }
+            #s5 > h2 {
+              font-stretch: 45%;
+            }
+          }
+          @media (min-aspect-ratio: 161/100) {
+            #s2 > h2 {
+              font-stretch: 50%;
+            }
+            #s5 > h2 {
+              font-stretch: 46%;
+            }
+          }
+          @media (min-aspect-ratio: 163/100) {
+            #s2 > h2 {
+              font-stretch: 51%;
+            }
+          }
+          @media (min-aspect-ratio: 164/100) {
+            #s5 > h2 {
+              font-stretch: 47%;
+            }
+          }
+          @media (min-aspect-ratio: 166/100) {
+            #s2 > h2 {
+              font-stretch: 52%;
+            }
+            #s5 > h2 {
+              font-stretch: 48%;
+            }
+          }
+          @media (min-aspect-ratio: 168/100) {
+            #s2 > h2 {
+              font-stretch: 53%;
+            }
+            #s5 > h2 {
+              font-stretch: 49%;
+            }
+          }
+          @media (min-aspect-ratio: 170/100) {
+            #s2 > h2 {
+              font-stretch: 54%;
+            }
+          }
+          @media (min-aspect-ratio: 171/100) {
+            #s5 > h2 {
+              font-stretch: 50%;
+            }
+          }
+          @media (min-aspect-ratio: 173/100) {
+            #s2 > h2 {
+              font-stretch: 55%;
+            }
+            #s5 > h2 {
+              font-stretch: 51%;
+            }
+          }
+          @media (min-aspect-ratio: 175/100) {
+            #s2 > h2 {
+              font-stretch: 56%;
+            }
+          }
+          @media (min-aspect-ratio: 176/100) {
+            #s5 > h2 {
+              font-stretch: 52%;
+            }
+          }
+          @media (min-aspect-ratio: 178/100) {
+            #s2 > h2 {
+              font-stretch: 57%;
+            }
+            #s5 > h2 {
+              font-stretch: 53%;
+            }
+          }
+          @media (min-aspect-ratio: 180/100) {
+            #s2 > h2 {
+              font-stretch: 58%;
+            }
+          }
+          @media (min-aspect-ratio: 181/100) {
+            #s5 > h2 {
+              font-stretch: 54%;
+            }
+          }
+          @media (min-aspect-ratio: 182/100) {
+            #s2 > h2 {
+              font-stretch: 59%;
+            }
+          }
+          @media (min-aspect-ratio: 183/100) {
+            #s5 > h2 {
+              font-stretch: 55%;
+            }
+          }
+          @media (min-aspect-ratio: 185/100) {
+            #s2 > h2 {
+              font-stretch: 60%;
+            }
+            #s5 > h2 {
+              font-stretch: 56%;
+            }
+          }
+          @media (min-aspect-ratio: 187/100) {
+            #s2 > h2 {
+              font-stretch: 61%;
+            }
+          }
+          @media (min-aspect-ratio: 188/100) {
+            #s5 > h2 {
+              font-stretch: 57%;
+            }
+          }
+          @media (min-aspect-ratio: 189/100) {
+            #s2 > h2 {
+              font-stretch: 62%;
+            }
+          }
+          @media (min-aspect-ratio: 190/100) {
+            #s5 > h2 {
+              font-stretch: 58%;
+            }
+          }
+          @media (min-aspect-ratio: 192/100) {
+            #s2 > h2 {
+              font-stretch: 63%;
+            }
+          }
+          @media (min-aspect-ratio: 193/100) {
+            #s5 > h2 {
+              font-stretch: 59%;
+            }
+          }
+          @media (min-aspect-ratio: 194/100) {
+            #s2 > h2 {
+              font-stretch: 64%;
+            }
+          }
+          @media (min-aspect-ratio: 195/100) {
+            #s5 > h2 {
+              font-stretch: 60%;
+            }
+          }
+          @media (min-aspect-ratio: 196/100) {
+            #s2 > h2 {
+              font-stretch: 65%;
+            }
+          }
+          @media (min-aspect-ratio: 198/100) {
+            #s5 > h2 {
+              font-stretch: 61%;
+            }
+          }
+          @media (min-aspect-ratio: 199/100) {
+            #s2 > h2 {
+              font-stretch: 66%;
+            }
+          }
+          @media (min-aspect-ratio: 200/100) {
+            #s5 > h2 {
+              font-stretch: 62%;
+            }
+          }
+          @media (min-aspect-ratio: 201/100) {
+            #s2 > h2 {
+              font-stretch: 67%;
+            }
+          }
+          @media (min-aspect-ratio: 202/100) {
+            #s5 > h2 {
+              font-stretch: 63%;
+            }
+          }
+          @media (min-aspect-ratio: 204/100) {
+            #s2 > h2 {
+              font-stretch: 68%;
+            }
+          }
+          @media (min-aspect-ratio: 205/100) {
+            #s5 > h2 {
+              font-stretch: 64%;
+            }
+          }
+          @media (min-aspect-ratio: 206/100) {
+            #s2 > h2 {
+              font-stretch: 69%;
+            }
+          }
+          @media (min-aspect-ratio: 207/100) {
+            #s5 > h2 {
+              font-stretch: 65%;
+            }
+          }
+          @media (min-aspect-ratio: 208/100) {
+            #s2 > h2 {
+              font-stretch: 70%;
+            }
+          }
+          @media (min-aspect-ratio: 210/100) {
+            #s5 > h2 {
+              font-stretch: 66%;
+            }
+          }
+          @media (min-aspect-ratio: 211/100) {
+            #s2 > h2 {
+              font-stretch: 71%;
+            }
+          }
+          @media (min-aspect-ratio: 212/100) {
+            #s5 > h2 {
+              font-stretch: 67%;
+            }
+          }
+          @media (min-aspect-ratio: 213/100) {
+            #s2 > h2 {
+              font-stretch: 72%;
+            }
+          }
+          @media (min-aspect-ratio: 214/100) {
+            #s5 > h2 {
+              font-stretch: 68%;
+            }
+          }
+          @media (min-aspect-ratio: 215/100) {
+            #s2 > h2 {
+              font-stretch: 73%;
+            }
+          }
+          @media (min-aspect-ratio: 217/100) {
+            #s5 > h2 {
+              font-stretch: 69%;
+            }
+          }
+          @media (min-aspect-ratio: 218/100) {
+            #s2 > h2 {
+              font-stretch: 74%;
+            }
+          }
+          @media (min-aspect-ratio: 219/100) {
+            #s5 > h2 {
+              font-stretch: 70%;
+            }
+          }
+          @media (min-aspect-ratio: 220/100) {
+            #s2 > h2 {
+              font-stretch: 75%;
+            }
+          }
+          @media (min-aspect-ratio: 222/100) {
+            #s5 > h2 {
+              font-stretch: 71%;
+            }
+          }
+          @media (min-aspect-ratio: 223/100) {
+            #s2 > h2 {
+              font-stretch: 76%;
+            }
+          }
+          @media (min-aspect-ratio: 224/100) {
+            #s5 > h2 {
+              font-stretch: 72%;
+            }
+          }
+          @media (min-aspect-ratio: 225/100) {
+            #s2 > h2 {
+              font-stretch: 77%;
+            }
+          }
+          @media (min-aspect-ratio: 227/100) {
+            #s2 > h2 {
+              font-stretch: 78%;
+            }
+            #s5 > h2 {
+              font-stretch: 73%;
+            }
+          }
+          @media (min-aspect-ratio: 229/100) {
+            #s5 > h2 {
+              font-stretch: 74%;
+            }
+          }
+          @media (min-aspect-ratio: 230/100) {
+            #s2 > h2 {
+              font-stretch: 79%;
+            }
+          }
+          @media (min-aspect-ratio: 231/100) {
+            #s5 > h2 {
+              font-stretch: 75%;
+            }
+          }
+          @media (min-aspect-ratio: 232/100) {
+            #s2 > h2 {
+              font-stretch: 80%;
+            }
+          }
+          @media (min-aspect-ratio: 234/100) {
+            #s2 > h2 {
+              font-stretch: 81%;
+            }
+            #s5 > h2 {
+              font-stretch: 76%;
+            }
+          }
+          @media (min-aspect-ratio: 236/100) {
+            #s5 > h2 {
+              font-stretch: 77%;
+            }
+          }
+          @media (min-aspect-ratio: 237/100) {
+            #s2 > h2 {
+              font-stretch: 82%;
+            }
+          }
+          @media (min-aspect-ratio: 239/100) {
+            #s2 > h2 {
+              font-stretch: 83%;
+            }
+            #s5 > h2 {
+              font-stretch: 78%;
+            }
+          }
+          @media (min-aspect-ratio: 241/100) {
+            #s2 > h2 {
+              font-stretch: 84%;
+            }
+            #s5 > h2 {
+              font-stretch: 79%;
+            }
+          }
+          @media (min-aspect-ratio: 244/100) {
+            #s2 > h2 {
+              font-stretch: 85%;
+            }
+            #s5 > h2 {
+              font-stretch: 80%;
+            }
+          }
+          @media (min-aspect-ratio: 246/100) {
+            #s2 > h2 {
+              font-stretch: 86%;
+            }
+            #s5 > h2 {
+              font-stretch: 81%;
+            }
+          }
+          @media (min-aspect-ratio: 248/100) {
+            #s5 > h2 {
+              font-stretch: 82%;
+            }
+          }
+          @media (min-aspect-ratio: 249/100) {
+            #s2 > h2 {
+              font-stretch: 87%;
+            }
+          }
+          @media (min-aspect-ratio: 251/100) {
+            #s2 > h2 {
+              font-stretch: 88%;
+            }
+            #s5 > h2 {
+              font-stretch: 83%;
+            }
+          }
+          @media (min-aspect-ratio: 253/100) {
+            #s2 > h2 {
+              font-stretch: 89%;
+            }
+            #s5 > h2 {
+              font-stretch: 84%;
+            }
+          }
+          @media (min-aspect-ratio: 256/100) {
+            #s2 > h2 {
+              font-stretch: 90%;
+            }
+            #s5 > h2 {
+              font-stretch: 85%;
+            }
+          }
+          @media (min-aspect-ratio: 258/100) {
+            #s2 > h2 {
+              font-stretch: 91%;
+            }
+            #s5 > h2 {
+              font-stretch: 86%;
+            }
+          }
+          @media (min-aspect-ratio: 260/100) {
+            #s2 > h2 {
+              font-stretch: 92%;
+            }
           }
         </style>
         <a href="https://discord.gg/5j665Gq2uz" class="slide" id="s5">
@@ -271,66 +906,6 @@
           <p>Contains Mullvad.</p>
         </a>
       </div>
-      <script>
-        <![CDATA[
-                function fit() {
-                  var vw = window.innerWidth;
-                  var vh = window.innerHeight;
-                  function calibrate(el, opts) {
-                    if (!el) return;
-                    if (opts.fontSize != null) {
-                      el.style.fontSize = opts.fontSize;
-                    }
-                    if (opts.lineHeight) el.style.lineHeight = opts.lineHeight;
-                    if (opts.letterSpacing) el.style.letterSpacing = opts.letterSpacing;
-
-                    // measure at three stretch points: 25%, 100%, 151%
-                    el.style.fontStretch = '25%';
-                    var w25 = el.offsetWidth;
-                    el.style.fontStretch = '100%';
-                    var w100 = el.offsetWidth;
-                    el.style.fontStretch = '151%';
-                    var w151 = el.offsetWidth;
-
-                    // piecewise linear model
-                    var m1 = (w100 - w25) / 75;
-                    var c1 = w25 - m1 * 25;
-                    var m2 = (w151 - w100) / 51;
-                    var c2 = w100 - m2 * 100;
-
-                    var targetW = vw * opts.targetWidthVw / 100;
-                    var s;
-                    if (targetW <= w100) {
-                      s = Math.round((targetW - c1) / m1);
-                    } else {
-                      s = Math.round((targetW - c2) / m2);
-                    }
-                    s = Math.max(25, Math.min(151, s));
-                    el.style.fontStretch = s + '%';
-                  }
-
-                  calibrate(document.querySelector('#s2 > h2'), {
-                    fontSize: (100 / 0.8 / 100 * vh) + 'px',
-                    targetWidthVw: 50,
-                    lineHeight: 0.8,
-                    letterSpacing: '-0.02em'
-                  });
-                  calibrate(document.querySelector('#s5 > h2'), {
-                    fontSize: (75 / 0.8 / 100 * vh) + 'px',
-                    targetWidthVw: 100,
-                    lineHeight: 0.8,
-                    letterSpacing: '-0.02em'
-                  });
-                  calibrate(document.querySelector('#s1 > h1'), {
-                    targetWidthVw: 99,
-                    lineHeight: 1,
-                    letterSpacing: '-0.05em'
-                  });
-                }
-                window.addEventListener('resize', fit);
-                fit();
-              ]]>
-      </script>
     </body>
   </foreignObject>
 </svg>
