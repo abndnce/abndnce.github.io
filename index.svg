@@ -113,16 +113,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: min(9vw, 22vh);
+            font-size: 10dvw;
             font-weight: bold;
-            font-stretch: 151%;
             color: var(--m3c-primary);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.05em;
             line-height: 1;
           }
           #s1 > p {
             color: var(--m3c-on-surface-variant);
-            font-size: clamp(1.35rem, 2.8vw, 2rem);
+            font-size: 2rem;
           }
         </style>
         <div class="slide" id="s1">
@@ -144,32 +143,18 @@
         <style>
           #s2 {
             flex-direction: row;
-            gap: clamp(1rem, 3vw, 3rem);
             align-items: center;
-            justify-content: start;
+            justify-content: normal;
             text-align: start;
             background-color: var(--m3c-primary-container-subtle);
             color: var(--m3c-on-primary-container-subtle);
             text-decoration: none;
-            padding: clamp(1.5rem, 4vw, 3rem);
-            border-radius: clamp(1.5rem, 4vw, 2.5rem);
+            padding: 0;
+            border-radius: 2rem;
+            font-size: 2rem;
           }
           #s2 > h2 {
             font-weight: 400;
-            font-size: 125vh;
-            font-optical-sizing: none;
-            font-variation-settings: 'opsz' 144;
-            font-stretch: 25%;
-            line-height: 0.8;
-            letter-spacing: -0.02em;
-            margin: 0;
-          }
-          #s2 > p {
-            flex: 0 1 16ch;
-            max-width: 16ch;
-            margin-top: 0;
-            font-size: clamp(1.5rem, 2.8vw, 2.5rem);
-            line-height: 1.05;
           }
         </style>
         <a href="https://github.com/0k-web/0k" class="slide" id="s2">
@@ -273,54 +258,79 @@
             background-color: var(--m3c-primary-container-subtle);
             color: var(--m3c-on-primary-container-subtle);
             text-decoration: none;
-            padding: clamp(1.5rem, 4vw, 3rem);
-            border-radius: clamp(1.5rem, 4vw, 2.5rem);
+            padding: 0;
+            border-radius: 2rem;
+            font-size: 2rem;
           }
           #s5 > h2 {
             font-weight: 400;
-            font-size: 93.75vh;
-            font-optical-sizing: none;
-            font-variation-settings: 'opsz' 144;
-            font-stretch: 25%;
-            line-height: 0.8;
-            letter-spacing: -0.02em;
-            margin: 0;
           }
-          #s5 > p {
-            margin-top: 0;
-            font-size: clamp(1.5rem, 2.6vw, 2.4rem);
-            line-height: 1.05;
-          }
-          @media (max-width: 720px), (max-aspect-ratio: 4/5) {
-            h1 {
-              font-size: min(24vh, 24vw);
-              font-stretch: 25%;
-            }
-            #s2 {
-              flex-direction: column;
-              text-align: center;
-            }
-            #s2 > h2 {
-              font-size: min(125vh, 122vw);
-            }
-            #s2 > p {
-              max-width: 11ch;
-              font-size: clamp(1.75rem, 8vw, 2.75rem);
-            }
-            #s5 > h2 {
-              font-size: min(93.75vh, 57vw);
-            }
-            #s5 > p {
-              font-size: clamp(1.6rem, 7vw, 2.5rem);
-            }
-          }
-          /* GENERATED_HERO_MEDIA */
         </style>
         <a href="https://discord.gg/5j665Gq2uz" class="slide" id="s5">
           <h2>Discord</h2>
           <p>Contains Mullvad.</p>
         </a>
       </div>
+      <script>
+        <![CDATA[
+                function fit() {
+                  var vw = window.innerWidth;
+                  var vh = window.innerHeight;
+                  function calibrate(el, opts) {
+                    if (!el) return;
+                    if (opts.fontSize != null) {
+                      el.style.fontSize = opts.fontSize;
+                    }
+                    if (opts.lineHeight) el.style.lineHeight = opts.lineHeight;
+                    if (opts.letterSpacing) el.style.letterSpacing = opts.letterSpacing;
+
+                    // measure at three stretch points: 25%, 100%, 151%
+                    el.style.fontStretch = '25%';
+                    var w25 = el.offsetWidth;
+                    el.style.fontStretch = '100%';
+                    var w100 = el.offsetWidth;
+                    el.style.fontStretch = '151%';
+                    var w151 = el.offsetWidth;
+
+                    // piecewise linear model
+                    var m1 = (w100 - w25) / 75;
+                    var c1 = w25 - m1 * 25;
+                    var m2 = (w151 - w100) / 51;
+                    var c2 = w100 - m2 * 100;
+
+                    var targetW = vw * opts.targetWidthVw / 100;
+                    var s;
+                    if (targetW <= w100) {
+                      s = Math.round((targetW - c1) / m1);
+                    } else {
+                      s = Math.round((targetW - c2) / m2);
+                    }
+                    s = Math.max(25, Math.min(151, s));
+                    el.style.fontStretch = s + '%';
+                  }
+
+                  calibrate(document.querySelector('#s2 > h2'), {
+                    fontSize: (100 / 0.8 / 100 * vh) + 'px',
+                    targetWidthVw: 50,
+                    lineHeight: 0.8,
+                    letterSpacing: '-0.02em'
+                  });
+                  calibrate(document.querySelector('#s5 > h2'), {
+                    fontSize: (75 / 0.8 / 100 * vh) + 'px',
+                    targetWidthVw: 100,
+                    lineHeight: 0.8,
+                    letterSpacing: '-0.02em'
+                  });
+                  calibrate(document.querySelector('#s1 > h1'), {
+                    targetWidthVw: 99,
+                    lineHeight: 1,
+                    letterSpacing: '-0.05em'
+                  });
+                }
+                window.addEventListener('resize', fit);
+                fit();
+              ]]>
+      </script>
     </body>
   </foreignObject>
 </svg>
