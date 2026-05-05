@@ -7,7 +7,7 @@
         font-weight: 1 1000;
         font-stretch: 25% 151%;
         font-display: swap;
-        src: url('GSANS_DATA_URI') format('woff2');
+        src: url('https://cdn.jsdelivr.net/gh/abndnce/site@main/gsans.woff2') format('woff2');
       }
       :root {
         color-scheme: light dark;
@@ -328,7 +328,7 @@
                   });
                 }
                 window.addEventListener('resize', fit);
-                fit();
+                document.fonts.ready.then(fit);
               ]]>
       </script>
     </body>
